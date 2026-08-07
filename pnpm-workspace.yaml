@@ -14,6 +14,8 @@ overrides:
   postcss: '^8.5.18'
   # next also bundles an old sharp (image optimization) — force the patched line.
   sharp: '^0.35.0'
+  # eslint depends on @eslint/eslintrc -> js-yaml; force patched js-yaml.
+  js-yaml: '^4.3.1'
 
 allowBuilds:
   '@firebase/util': true
