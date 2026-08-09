@@ -1,8 +1,42 @@
 @import "tailwindcss";
 
 :root {
+  /* Base colours — background and foreground */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Primary accent — buttons, active states, links, focus outlines */
+  --color-forest-green: #2D6A4F;
+ 
+  /* Secondary accent — hover states, card borders, highlights */
+  --color-mint-green: #74C69D;
+
+  /* Darker green */
+  --color-dark-green: #1B4332;
+ 
+  /* Background tint — page backgrounds, card backgrounds, title areas */
+  --color-pale-mint: #D8F3DC;
+ 
+  /* Primary text colour */
+  --color-near-black: #1B1B1B;
+ 
+  /* Secondary text — roles, placeholder text, muted labels */
+  --color-cool-grey: #6B7280;
+ 
+  /* Card backgrounds, input field backgrounds */
+  --color-white: #FFFFFF;
+ 
+  /* Input field borders in default state, dividers */
+  --color-light-grey: #E5E7EB;
+
+  /* Error / Red */
+  --color-error: #DC2626;
+
+  /* Disabled text */
+  --color-disabled-text: #9CA3AF;
+
+  /* Disabled background */
+  --color-disabled: #F9FAFB;
 }
 
 @theme inline {
@@ -10,13 +44,22 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
+  --font-space-grotesk: var(--font-space-grotesk);
+  --font-inter: var(--font-inter);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --shadow-card: 0px 8px 24px rgba(0, 0, 0, 0.10);
+
+  --color-forest-green: var(--color-forest-green);
+  --color-mint-green: var(--color-mint-green);
+  --color-dark-green: var(--color-dark-green);
+  --color-pale-mint: var(--color-pale-mint);
+  --color-near-black: var(--color-near-black);
+  --color-cool-grey: var(--color-cool-grey);
+  --color-white: var(--color-white);
+  --color-light-grey: var(--color-light-grey);
+  --color-error: var(--color-error);
+  --color-disabled: var(--color-disabled);
+  --color-disabled-text: var(--color-disabled-text);
 }
 
 body {
