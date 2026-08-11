@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server'
 
-const PROTECTED_ROUTES = ['/dashboard', '/profile', '/settings']
+const PROTECTED_ROUTES = ['/dashboard', '/profile', '/settings', '/team']
 const AUTH_ROUTES = ['/auth/signin', '/auth/signup']
 
 /**
@@ -23,7 +23,7 @@ export function proxy(req: NextRequest) {
   }
 
   if (isAuthRoute && isAuthenticated) {
-    return NextResponse.redirect(new URL('/dashboard', req.url))
+    return NextResponse.redirect(new URL('/team', req.url))
   }
 
   return NextResponse.next()
@@ -37,7 +37,11 @@ export const config = {
      * - _next/image (image optimization)
      * - favicon.ico, public assets
      * - api routes (they handle their own auth)
+     * - static image files served from /public (e.g. /team/*.jpeg) — the
+     *   image optimizer's internal fetch for these doesn't carry the
+     *   session cookie, so leaving them behind the auth gate breaks
+     *   next/image for any protected route that references local photos
      */
-    '/((?!_next/static|_next/image|favicon.ico|api/|images/).*)',
+    '/((?!_next/static|_next/image|favicon.ico|api/|images/|.*\\.(?:jpg|jpeg|png|webp|gif|svg|ico)$).*)',
   ],
 }

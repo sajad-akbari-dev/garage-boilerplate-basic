@@ -7,3 +7,11 @@ export interface ActionResult<T = undefined> {
   error?: string
   data?: T
 }
+
+/** Static team member entry — sourced from src/data/team.ts, not Firestore */
+export interface TeamMember {
+  name: string
+  role: string
+  photo: string
+  blurb?: string
+}
