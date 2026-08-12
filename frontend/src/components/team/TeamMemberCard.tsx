@@ -12,7 +12,7 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
 
       <div className="flex flex-col gap-2 p-5">
         <h3 className="line-clamp-2 font-inter text-2xl font-bold text-near-black">{member.name}</h3>
-        <p className="truncate font-inter text-lg font-semibold text-forest-green">{member.role}</p>
+        <p className="font-inter text-lg font-semibold text-forest-green">{member.role}</p>
         {member.blurb && (
           <p className="line-clamp-3 font-inter text-sm font-medium text-cool-grey">{member.blurb}</p>
         )}
