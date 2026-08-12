@@ -122,7 +122,7 @@ importers:
         specifier: ^0.0.1
         version: 0.0.1
       sharp:
-        specifier: ^0.35.3
+        specifier: ^0.35.0
         version: 0.35.3(@types/node@20.19.43)
       sonner:
         specifier: ^2.0.3
