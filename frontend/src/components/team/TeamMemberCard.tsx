@@ -51,7 +51,7 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 flex h-full w-full flex-col overflow-hidden rounded-xl border border-mint-green bg-white opacity-0 shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:z-20 group-hover:h-auto group-hover:scale-[1.05] group-hover:opacity-100 group-hover:shadow-xl"
+        className="pointer-events-none absolute inset-0 flex max-h-full w-full flex-col overflow-hidden rounded-xl border border-mint-green bg-white opacity-0 shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out group-hover:pointer-events-auto group-hover:z-20 group-hover:max-h-[700px] group-hover:scale-[1.03] group-hover:opacity-100 group-hover:shadow-xl"
       >
         <CardBody member={member} clampText={false} />
       </div>
