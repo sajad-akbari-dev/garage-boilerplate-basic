@@ -7,7 +7,7 @@ interface TeamMemberCardProps {
 
 export function TeamMemberCard({ member }: TeamMemberCardProps) {
   return (
-    <div className="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-mint-green bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:z-20 hover:h-auto hover:scale-[1.2] hover:shadow-xl">
+    <div className="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-mint-green bg-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:z-20 hover:h-auto hover:scale-[1.05] hover:shadow-xl">
       <TeamMemberPhoto src={member.photo} name={member.name} />
 
       <div className="flex flex-col gap-2 p-5">
