@@ -7,28 +7,28 @@ export const teamMembers: TeamMember[] = [
   {
     name: 'Thomas Phu Thai Ta',
     role: 'Project Manager',
-    photo: '/team/thomas.jpeg',
+    photo: '/team/thomas.webp',
     blurb:
       'Aspiring developer who likes building new things. Keeps the team organised, runs the board, and makes sure work moves forward.',
   },
   {
     name: 'Ujjawal Mittal',
     role: 'Business Analyst and UX Designer',
-    photo: '/team/ujjawal.jpeg',
+    photo: '/team/ujjawal.webp',
     blurb:
       'Final-year Computer Science student at RMIT specialising in AI and cloud computing. Responsible for requirements, UX design, and ensuring the team delivers to spec.',
   },
   {
     name: 'William Lor',
     role: 'Developer',
-    photo: '/team/william.jpeg',
+    photo: '/team/william.webp',
     blurb:
       "Software engineering student at RMIT who enjoys coding and music. Works across the frontend and helps bring the team's designs to life.",
   },
   {
     name: 'Sajad Ali Akbari',
     role: 'Developer',
-    photo: '/team/sajad.png',
+    photo: '/team/sajad.webp',
     blurb:
       'IT student at RMIT focused on cloud infrastructure and security. Handles deployment, DevOps, and infrastructure for the team, and works across the stack.',
   },
