@@ -34,9 +34,9 @@ export function CreateNoteForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 rounded-lg border p-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 rounded-lg border border-mint-green bg-white p-4">
       <div className="space-y-1.5">
-        <label htmlFor="title" className="text-sm font-medium">
+        <label htmlFor="title" className="text-sm font-medium text-near-black">
           Title
         </label>
         <input
@@ -44,25 +44,25 @@ export function CreateNoteForm() {
           type="text"
           aria-invalid={!!errors.title}
           aria-describedby={errors.title ? 'title-error' : undefined}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:outline-none aria-invalid:border-red-500 dark:border-zinc-700 dark:bg-zinc-900"
+          className="w-full rounded-md border border-light-grey bg-white px-3 py-2 text-sm shadow-sm placeholder:text-cool-grey focus:border-2 focus:border-forest-green focus:outline-none aria-invalid:border-2 aria-invalid:border-error"
           placeholder="Note title"
           {...register('title')}
         />
         {errors.title && (
-          <p id="title-error" className="text-xs text-red-500" role="alert">
+          <p id="title-error" className="text-xs text-error" role="alert">
             {errors.title.message}
           </p>
         )}
       </div>
 
       <div className="space-y-1.5">
-        <label htmlFor="body" className="text-sm font-medium">
+        <label htmlFor="body" className="text-sm font-medium text-near-black">
           Body
         </label>
         <textarea
           id="body"
           rows={3}
-          className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900"
+          className="w-full rounded-md border border-light-grey bg-white px-3 py-2 text-sm shadow-sm placeholder:text-cool-grey focus:border-2 focus:border-forest-green focus:outline-none"
           placeholder="Write something..."
           {...register('body')}
         />
@@ -71,7 +71,7 @@ export function CreateNoteForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+        className="rounded-md bg-forest-green px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-dark-green disabled:cursor-not-allowed disabled:bg-mint-green"
       >
         {isSubmitting ? 'Saving…' : 'Add note'}
       </button>
