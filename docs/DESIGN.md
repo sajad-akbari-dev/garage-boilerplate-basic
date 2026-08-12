@@ -15,20 +15,29 @@ This project uses Tailwind v4 with **CSS-first configuration** — there is no `
 /* globals.css */
 @import "tailwindcss";
 
-@theme {
-  /* Override or extend the default theme here with CSS custom properties */
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+:root {
+  --color-forest-green: #2D6A4F; /* Primary accent — buttons, active states, links */
+  --color-mint-green:   #74C69D; /* Secondary accent — hover states, card/nav borders */
+  --color-dark-green:   #1B4332; /* Hover state for forest-green */
+  --color-pale-mint:    #D8F3DC; /* Page/background tint */
+  --color-near-black:   #1B1B1B; /* Primary text */
+  --color-cool-grey:    #6B7280; /* Secondary text — roles, muted labels */
+  --color-light-grey:   #E5E7EB; /* Input borders, dividers */
+  --color-error:        #DC2626;
+  --color-disabled:       #F9FAFB;
+  --color-disabled-text:  #9CA3AF;
+}
 
-  /* Custom colors */
-  --color-brand-50:  #eff6ff;
-  --color-brand-500: #3b82f6;
-  --color-brand-900: #1e3a8a;
+@theme inline {
+  --font-space-grotesk: var(--font-space-grotesk);
+  --font-inter: var(--font-inter);
+  --shadow-card: 0px 8px 24px rgba(0, 0, 0, 0.10);
+  /* ...plus each --color-* above, re-exposed for @theme inline */
 }
 ```
 
-- Use `@theme` to define or extend design tokens as CSS custom properties
-- Utilities are generated from the theme automatically — `bg-brand-500` just works
+This is the project's actual token set, defined once in `frontend/src/app/globals.css` — every color and font below is a real CSS custom property, not a placeholder. Utilities are generated automatically (`bg-forest-green`, `text-cool-grey`, `font-space-grotesk`, etc.).
+
 - No arbitrary values unless truly necessary — always define a token first
 - No inline `style=` attributes — everything is Tailwind classes
 
@@ -38,20 +47,28 @@ This project uses Tailwind v4 with **CSS-first configuration** — there is no `
 
 | Token | Purpose |
 |-------|---------|
-| `zinc-*` | Neutral grays — backgrounds, borders, text |
-| `brand-*` | Primary brand color (define per project in `@theme`) |
-| `red-*` | Destructive actions, error states |
-| `green-*` | Success states |
-| `yellow-*` / `amber-*` | Warning states |
-| `white` / `black` | Absolute white/black |
+| `forest-green` | Primary accent — primary buttons, active nav state, links, focus |
+| `dark-green` | Hover state for `forest-green` |
+| `mint-green` | Secondary accent — card/nav borders, hover fills |
+| `pale-mint` | Page background tint (landing, auth, dashboard shell, team page) |
+| `near-black` | Primary text |
+| `cool-grey` | Secondary/muted text — roles, hints, placeholders |
+| `light-grey` | Input borders, dividers |
+| `white` | Card and input backgrounds |
+| `error` (`#DC2626`) | Destructive actions, error states |
+| `disabled` / `disabled-text` | Disabled surfaces and text |
 
 **Semantic usage:**
-- Page backgrounds: `bg-white` / `bg-zinc-50`
-- Card surfaces: `bg-white` with `border border-zinc-200`
-- Body text: `text-zinc-900`
-- Muted text: `text-zinc-500`
-- Borders: `border-zinc-200` (light), `border-zinc-300` (input)
-- Focus rings: `ring-2 ring-brand-500 ring-offset-2`
+- Page backgrounds: `bg-pale-mint`
+- Card / shell surfaces: `bg-white` with `border border-mint-green`
+- Body text: `text-near-black`
+- Muted text: `text-cool-grey`
+- Primary actions / active state: `bg-forest-green text-white`, hover `bg-dark-green`
+- Focus rings: `ring-2 ring-forest-green ring-offset-2`
+
+There is no dark mode in this app — landing, auth, and dashboard pages ship one light theme only. Don't add `dark:` variants.
+
+> **Legacy note:** `zinc-*` classes and `dark:` variants still linger in a few older dashboard pages (e.g. `dashboard`, `profile`, `settings`) that predate the brand palette above. Treat those as not-yet-migrated, not as an alternate valid system — new and touched UI should use the tokens in this table.
 
 ---
 
@@ -61,8 +78,12 @@ Fonts are loaded via `next/font/google` in the root layout and exposed as CSS va
 
 | Variable | Font | Use |
 |----------|------|-----|
-| `--font-geist-sans` | Geist Sans | All body text, UI |
+| `--font-space-grotesk` | Space Grotesk | Headings — page titles, card titles, hero text |
+| `--font-inter` | Inter | Body text, labels, nav items |
+| `--font-geist-sans` | Geist Sans | Legacy default — being phased out in favor of Inter |
 | `--font-geist-mono` | Geist Mono | Code, monospace |
+
+Apply fonts explicitly with `font-space-grotesk` / `font-inter` utility classes — they are not the page-wide default.
 
 **Type scale:**
 
@@ -166,6 +187,8 @@ Use the default Tailwind spacing scale. Do not define custom spacing tokens unle
   {/* content */}
 </div>
 ```
+
+For brand-styled surfaces (landing, auth, team page), use the shared `Card` component (`@/components/shared/Card`) instead of the pattern above — it's already wired to the brand tokens (`border-mint-green`, `shadow-card`, `rounded-2xl`).
 
 ### Badges / Pills
 
