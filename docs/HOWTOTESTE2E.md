@@ -13,6 +13,7 @@ pnpm install
 pnpm exec playwright install
 pnpm exec playwright test
 pnpm exec playwright test --ui (if you want interative UI)
+pnpm exec playwright show-report (browser report)
 
 ### If you have any questions or issues msg me on whatsapp
 
