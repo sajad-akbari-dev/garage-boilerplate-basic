@@ -1,11 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { teamMembers } from '../../src/data/team';
 
-function getLowerFirstName(name: string): string {
-    const parts = name.trim().split(/\s+/);
-    return parts[0]?.toLowerCase() ?? '';
-}
-
 test.describe('Login/TeamPage Happy Path', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/team');
