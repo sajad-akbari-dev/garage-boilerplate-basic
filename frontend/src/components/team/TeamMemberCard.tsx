@@ -38,7 +38,7 @@ function CardBody({ member, clampText }: { member: TeamMember; clampText: boolea
 
 export function TeamMemberCard({ member }: TeamMemberCardProps) {
   return (
-    <div className="group relative h-full w-full">
+    <div data-testid={`team-card-${member.name}`} className="group relative h-full w-full">
       {/*
         Base card is always visible and always clamped — this is the only
         element the grid measures, so hovering can never resize sibling cards.

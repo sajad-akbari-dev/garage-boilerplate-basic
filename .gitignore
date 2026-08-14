@@ -6,9 +6,11 @@ node_modules/
 # Environment variables (never commit these)
 .env
 .env.local
+.env.test.local
 .env.*.local
 !.env.example
 !.env.local.example
+!.env.test.example
 
 # Next.js
 frontend/.next/
@@ -29,6 +31,9 @@ backend/dist/
 # Testing
 coverage/
 .nyc_output/
+playwright/.auth/
+test-results/
+playwright-report/
 
 # OS
 .DS_Store
